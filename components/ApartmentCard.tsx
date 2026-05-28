@@ -19,7 +19,7 @@ export default function ApartmentCard({
                 {city}
             </p>
 
-            <p className="text-green-600 text-xl font-bold">
+            <p className="text-blue-400 text-xl font-bold">
                 ₪{price.toLocaleString()}
             </p>
         </div>

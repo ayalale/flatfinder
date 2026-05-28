@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ApartmentCard from "@/components/ApartmentCard";
 import Navbar from "@/components/Navbar";
-
+import Hero from "@/components/Hero";
 export default function Home() {
 
   const [showApartments, setShowApartments] = useState(false);
@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Navbar onApartmentsClick={() =>
         setShowApartments(!showApartments)} />
-
+      <Hero />
       <main className="p-10">
         {showApartments && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -13,38 +13,65 @@ export default function Navbar({
     onApartmentsClick,
 }: Props) {
     return (
-        <nav className="flex items-center justify-between px-10 py-5 border-b bg-white">
-            <div className="flex items-center gap-3">
-                <Image
-                    src="/logo.png"
-                    alt="logo"
-                    width={250}
-                    height={100}
-                /> </div>
-            <h3 className="text-3xl font-semibold text-gray-800">
-                Find your next apartment easily!
-            </h3>
+        <nav className="w-full border-b bg-white shadow-sm">
 
-            <div className="flex items-center gap-8 text-gray-700">
+            <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
 
-                <button className="flex items-center gap-2 hover:text-blue-600">
-                    <House size={20} />
-                    Home
-                </button>
+                <div className="flex items-center gap-6 text-gray-700">
 
-                <button
-                    onClick={onApartmentsClick}
-                    className="flex items-center gap-2"
-                >
-                    <Building2 size={20} />
-                    Apartments
-                </button>
+                    <button className="flex items-center gap-2 hover:text-blue-600 transition">
 
-                <button className="flex items-center gap-2 hover:text-blue-600">
-                    <CircleHelp size={20} />
-                    About
-                </button>
+                        <House size={18} />
+
+                        <span>בית</span>
+
+                    </button>
+
+                    <button
+                        onClick={onApartmentsClick}
+                        className="flex items-center gap-2 hover:text-blue-600 transition"
+                    >
+
+                        <Building2 size={18} />
+
+                        <span>דירות</span>
+
+                    </button>
+
+                    <button className="flex items-center gap-2 hover:text-blue-600 transition">
+
+                        <CircleHelp size={18} />
+
+                        <span>אודות</span>
+
+                    </button>
+
+                </div>
+
+                <div className="hidden md:block">
+
+                </div>
+
+                <div className="flex items-center gap-3">
+
+                    <div className="text-right">
+
+
+
+                    </div>
+
+                    <Image
+                        src="/logo.png"
+                        alt="logo"
+                        width={180}
+                        height={30}
+                        priority
+                    />
+
+                </div>
+
             </div>
         </nav>
+
     );
 }
