@@ -1,12 +1,31 @@
 "use client";
 
+
 import {
     Search,
     MapPin,
     BedDouble,
 } from "lucide-react";
 
-export default function Hero() {
+type Props = {
+    citySearch: string;
+
+    setCitySearch: React.Dispatch<
+        React.SetStateAction<string>
+    >;
+
+    roomsSearch: string;
+
+    setRoomsSearch: React.Dispatch<
+        React.SetStateAction<string>
+    >;
+};
+export default function Hero({
+    citySearch,
+    roomsSearch,
+    setCitySearch,
+    setRoomsSearch,
+}: Props) {
     return (
         <section className="w-full bg-gradient-to-b from-blue-50 to-white py-24">
             <div className="max-w-7xl mx-auto px-6 text-center">
@@ -27,6 +46,16 @@ export default function Hero() {
                         <input
                             type="text"
                             placeholder="עיר"
+                            value={citySearch}
+                            onChange={(e) => {
+
+                                const value = e.target.value;
+
+                                if (/^[\u0590-\u05FFa-zA-Z\s]*$/.test(value)) {
+                                    setCitySearch(value);
+                                }
+
+                            }}
                             className="bg-transparent outline-none w-full"
                         />
                     </div>
@@ -37,6 +66,16 @@ export default function Hero() {
                         <input
                             type="text"
                             placeholder="מספר חדרים"
+                            value={roomsSearch}
+                            onChange={(e) => {
+
+                                const value = e.target.value;
+
+                                if (/^\d*$/.test(value)) {
+                                    setRoomsSearch(value);
+                                }
+
+                            }}
                             className="bg-transparent outline-none w-full"
                         />
                     </div>
