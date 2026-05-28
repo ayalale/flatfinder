@@ -19,16 +19,19 @@ type Props = {
     setRoomsSearch: React.Dispatch<
         React.SetStateAction<string>
     >;
+    handleSearch: () => void;
 };
 export default function Hero({
     citySearch,
     roomsSearch,
     setCitySearch,
     setRoomsSearch,
+    handleSearch,
+
 }: Props) {
     return (
         <section className="w-full bg-gradient-to-b from-blue-50 to-white py-24">
-            <div className="max-w-7xl mx-auto px-6 text-center">
+            <div className="max-w-5xl mx-auto px-6 text-center">
 
                 <h1 className="text-6xl font-extrabold text-slate-900 leading-tight">
                     הדרך החכמה
@@ -79,8 +82,10 @@ export default function Hero({
                             className="bg-transparent outline-none w-full"
                         />
                     </div>
-                    <button className="bg-blue-600 hover:bg-blue-700 transition text-white px-10 py-4 rounded-2xl flex items-center gap-2 font-semibold w-full lg:w-auto justify-center">
-
+                    <button
+                        onClick={handleSearch}
+                        className="bg-blue-600 hover:bg-blue-700 hover:scale-105 transition duration-300 text-white px-10 py-4 rounded-2xl flex items-center gap-2 font-semibold w-full lg:w-auto justify-center"
+                    >
                         <Search />
 
                         חיפוש
