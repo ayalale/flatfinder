@@ -1,12 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ApartmentCard from "@/components/ApartmentCard";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import { apartments } from "@/data/apartments";
+import { Apartment } from "@/types/apartment";
 
 export default function Home() {
+
+  const [apartments, setApartments] =
+    useState<Apartment[]>([]);
+
+  useEffect(() => {
+    fetch("/api/apartments")
+      .then((res) => res.json())
+      .then((data) => setApartments(data));
+  }, []);
 
   const [showApartments, setShowApartments] = useState(false);
 
@@ -78,7 +87,7 @@ export default function Home() {
                   </h2>
 
                   <p className="text-gray-500 mt-3">
-                    נסי לשנות את החיפוש
+                    נסו לשנות את החיפוש
                   </p>
 
                 </div>
@@ -90,6 +99,8 @@ export default function Home() {
                   {filteredApartments.map((apartment) => (
                     <ApartmentCard
                       key={apartment.id}
+                      id={apartment.id}
+
                       title={apartment.title}
                       city={apartment.city}
                       price={apartment.price}

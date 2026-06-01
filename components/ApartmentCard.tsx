@@ -1,6 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
+    id: number;
+
     title: string;
     city: string;
     price: number;
@@ -9,6 +12,7 @@ type Props = {
 };
 
 export default function ApartmentCard({
+    id,
     title,
     city,
     price,
@@ -43,13 +47,14 @@ export default function ApartmentCard({
                 <p className="text-3xl font-bold text-blue-600 mt-4">
                     ₪{price.toLocaleString()}
                 </p>
+                <Link href={`/apartments/${id}`}>
 
-                <button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-2xl transition">
+                    <button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-2xl transition">
 
-                    לפרטים
+                        לפרטים
 
-                </button>
-
+                    </button>
+                </Link>
             </div>
 
         </div>
