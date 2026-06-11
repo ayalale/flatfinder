@@ -9,6 +9,7 @@ type Props = {
     price: number;
     rooms: number;
     image: string;
+
 };
 
 export default function ApartmentCard({
@@ -18,9 +19,11 @@ export default function ApartmentCard({
     price,
     rooms,
     image,
+
+
 }: Props) {
     return (
-
+        console.log("CARD ID:", id),
         <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300">
             <Image
                 src={image}
